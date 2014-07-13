@@ -26,7 +26,7 @@ echo '<Prompt>'$PARKED'</Prompt>'
 if [ $PARKCOUNT != 0 ]; then
 	OLDIFS=$IFS
 	IFS=$'\n'			# Change IFS to "newline" so that we may read list of all parked calls into an array
-	PARKLIST=`asterisk -rx 'parkedcalls show' | grep SIP`
+	PARKLIST=`asterisk -rx 'parkedcalls show' | egrep 'SIP|SCCP'`
 	for LOOP in $PARKLIST; do 
 		IFS=$OLDIFS		# Change IFS back to default "whitespace" so that we can extract the SIP channel from the LOOP array
 		read -r -a SIPCHANNEL <<< "$LOOP"
