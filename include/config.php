@@ -3,6 +3,6 @@
 # Setup Global Variables
 
 $amiuser=username
-$amipass=password
+$amisecret=password
 $amiport=5038
 $amiserver=localhost
