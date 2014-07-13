@@ -2,7 +2,7 @@
 #
 #	Cisco SPA Parking lot CGI XML Application for Asterisk
 #
-#	Install to apache cgi-bin directory and chmod +x
+#	Install parkinglot.sh to apache cgi-bin directory and chmod +x
 #
 #	Call via http request on IP phone via http://pbx-hostname/cgi-bin/parkinglot.sh
 #	
