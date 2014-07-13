@@ -9,7 +9,7 @@
 #	(c)2014 Henry Bonath
 #	henry@thinkcsc.com
 #
-
+PATH=$PATH:/usr/sbin
 echo "Content-type: text/xml"
 echo ""
 
