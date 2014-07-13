@@ -13,7 +13,7 @@ header ("content-type: text/xml");
     echo "<Prompt>Select a User</Prompt>\n";
 	while($row = mysqli_fetch_array($result)) {
 	  echo "<DirectoryEntry>\n";
-	  echo "<Name>" . $row['name'] . "</Name>\n";    //. $row['extension'];
+	  echo "<Name>" . $row['name'] . "</Name>\n";
 	  echo "<Telephone>" . $row['extension'] . "</Telephone>\n";
 	  echo "</DirectoryEntry>\n";
 	}
