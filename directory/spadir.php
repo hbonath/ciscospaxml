@@ -64,6 +64,12 @@ if ($numrows >=32) {
 	echo "<URL>http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?page=".++$page."</URL>\n";
 	echo "<Position>4</Position>\n";
 	echo "</SoftKeyItem>\n";
+	// Placeholder for Search Function
+	echo "<SoftKeyItem>\n";
+	echo "<Name>Search</Name>\n";
+	echo "<URL>SoftKey:Update</URL>";
+	echo "<Position>5</Position>\n";
+	echo "</SoftKeyItem>\n";
 
 } else {   // less than 32 entries
 	foreach ($results as $row) {
