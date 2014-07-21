@@ -52,24 +52,19 @@ if ($numrows >=32) {
 		echo "<Position>3</Position>\n";
 		echo "</SoftKeyItem>\n";
 
-		echo "<SoftKeyItem>\n";
-		echo "<Name>Next</Name>\n";
-		echo "<URL>http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?page=".++$page."</URL>\n";
-		echo "<Position>4</Position>\n";
-		echo "</SoftKeyItem>\n";
 	} else {
 		echo "<SoftKeyItem>\n";
 		echo "<Name>Exit</Name>\n";
 		echo "<URL>SoftKey:Exit</URL>\n";
 		echo "<Position>3</Position>\n";
 		echo "</SoftKeyItem>\n";
-
-		echo "<SoftKeyItem>\n";
-		echo "<Name>Next</Name>\n";
-		echo "<URL>http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?page=".++$page."</URL>\n";
-		echo "<Position>4</Position>\n";
-		echo "</SoftKeyItem>\n";
 	}	
+	echo "<SoftKeyItem>\n";
+	echo "<Name>Next</Name>\n";
+	echo "<URL>http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?page=".++$page."</URL>\n";
+	echo "<Position>4</Position>\n";
+	echo "</SoftKeyItem>\n";
+
 } else {   // less than 32 entries
 	foreach ($results as $row) {
             echo "<DirectoryEntry>\n";
