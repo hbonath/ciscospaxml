@@ -12,6 +12,7 @@ global $astman;  // AMI
 $sql = "SELECT name,extension FROM users ORDER BY extension";
 $results = $db->getAll($sql, DB_FETCHMODE_ORDERED);  // 2D array of all FreePBX users
 $numrows = count($results);
+$endoflist = False;
 
 // XML Output Below
 header ("content-type: text/xml");
@@ -63,7 +64,6 @@ if ($numrows >=32) {
 		echo "<URL>SoftKey:Exit</URL>\n";
 		echo "<Position>4</Position>\n";
 		echo "</SoftKeyItem>\n";
-
 	}
 	else {
 		if ($page > 0){
