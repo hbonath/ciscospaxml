@@ -28,10 +28,15 @@ if ($numrows >=32) {
 	}
 	$count = $page * 32 ;
 	for ($row=$count; $row <= $count+32; $row++) {
-	    echo "<DirectoryEntry>\n";
-	    echo "<Name>" . $results[$row][0] . "</Name>\n";
-	    echo "<Telephone>" . $results[$row][1] . "</Telephone>\n";
-	    echo "</DirectoryEntry>\n";
+	    if (empty($results[$row][0])) {
+                      // do nothing
+            }
+            else {
+	    	echo "<DirectoryEntry>\n";
+	    	echo "<Name>" . $results[$row][0] . "</Name>\n";
+	    	echo "<Telephone>" . $results[$row][1] . "</Telephone>\n";
+	    	echo "</DirectoryEntry>\n";
+            }
 	}
 	echo "<SoftKeyItem>\n";
 	echo "<Name>Dial</Name>\n";
