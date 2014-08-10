@@ -52,20 +52,7 @@ if ($numrows >=32) {
 	echo "<Position>2</Position>\n";
 	echo "</SoftKeyItem>\n";
 
-	if ($endoflist = True) {
-		echo "<SoftKeyItem>\n";
-		echo "<Name>Prev</Name>\n";
-		echo "<URL>SoftKey:Exit</URL>\n";
-		echo "<Position>3</Position>\n";
-		echo "</SoftKeyItem>\n";
-
-		echo "<SoftKeyItem>\n";
-		echo "<Name>End</Name>\n";
-		echo "<URL>SoftKey:Exit</URL>\n";
-		echo "<Position>4</Position>\n";
-		echo "</SoftKeyItem>\n";
-	}
-	else {
+	if ($endoflist = False) {
 		if ($page > 0){
 			echo "<SoftKeyItem>\n";
 			echo "<Name>Prev</Name>\n";
@@ -83,6 +70,19 @@ if ($numrows >=32) {
 		echo "<SoftKeyItem>\n";
 		echo "<Name>Next</Name>\n";
 		echo "<URL>http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?page=".++$page."</URL>\n";
+		echo "<Position>4</Position>\n";
+		echo "</SoftKeyItem>\n";
+	}
+	elseif ($endoflist = True) {
+		echo "<SoftKeyItem>\n";
+		echo "<Name>Prev</Name>\n";
+		echo "<URL>SoftKey:Exit</URL>\n";
+		echo "<Position>3</Position>\n";
+		echo "</SoftKeyItem>\n";
+
+		echo "<SoftKeyItem>\n";
+		echo "<Name>End</Name>\n";
+		echo "<URL>SoftKey:Exit</URL>\n";
 		echo "<Position>4</Position>\n";
 		echo "</SoftKeyItem>\n";
 	}
