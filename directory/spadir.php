@@ -29,9 +29,10 @@ if ($numrows >=32) {
 	$count = $page * 32 ;
 	for ($row=$count; $row <= $count+32; $row++) {
 	    if (empty($results[$row][0])) {
-                      // do nothing
+            	$endoflist = True;
             }
             else {
+            $endoflist = False;
 	    	echo "<DirectoryEntry>\n";
 	    	echo "<Name>" . $results[$row][0] . "</Name>\n";
 	    	echo "<Telephone>" . $results[$row][1] . "</Telephone>\n";
@@ -50,26 +51,41 @@ if ($numrows >=32) {
 	echo "<Position>2</Position>\n";
 	echo "</SoftKeyItem>\n";
 
-	if ($page > 0){
+	if ($endoflist = True) {
 		echo "<SoftKeyItem>\n";
 		echo "<Name>Prev</Name>\n";
 		echo "<URL>SoftKey:Exit</URL>\n";
 		echo "<Position>3</Position>\n";
 		echo "</SoftKeyItem>\n";
 
-	} else {
 		echo "<SoftKeyItem>\n";
-		echo "<Name>Exit</Name>\n";
+		echo "<Name>End</Name>\n";
 		echo "<URL>SoftKey:Exit</URL>\n";
-		echo "<Position>3</Position>\n";
+		echo "<Position>4</Position>\n";
 		echo "</SoftKeyItem>\n";
-	}	
-	echo "<SoftKeyItem>\n";
-	echo "<Name>Next</Name>\n";
-	echo "<URL>http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?page=".++$page."</URL>\n";
-	echo "<Position>4</Position>\n";
-	echo "</SoftKeyItem>\n";
-	
+
+	}
+	else {
+		if ($page > 0){
+			echo "<SoftKeyItem>\n";
+			echo "<Name>Prev</Name>\n";
+			echo "<URL>SoftKey:Exit</URL>\n";
+			echo "<Position>3</Position>\n";
+			echo "</SoftKeyItem>\n";
+
+		} else {
+			echo "<SoftKeyItem>\n";
+			echo "<Name>Exit</Name>\n";
+			echo "<URL>SoftKey:Exit</URL>\n";
+			echo "<Position>3</Position>\n";
+			echo "</SoftKeyItem>\n";
+		}	
+		echo "<SoftKeyItem>\n";
+		echo "<Name>Next</Name>\n";
+		echo "<URL>http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?page=".++$page."</URL>\n";
+		echo "<Position>4</Position>\n";
+		echo "</SoftKeyItem>\n";
+	}
 	// Placeholder for Search Function
 	// echo "<SoftKeyItem>\n";
 	// echo "<Name>Search</Name>\n";
