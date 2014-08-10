@@ -29,15 +29,15 @@ if ($numrows >=32) {
 	}
 	$count = $page * 32 ;
 	for ($row=$count; $row <= $count+32; $row++) {
-	    if (empty($results[$row][0])) {
+	    if (is_null($results[$row][0])) {
             	$endoflist = True;
             }
             else {
-            $endoflist = False;
-	    	echo "<DirectoryEntry>\n";
-	    	echo "<Name>" . $results[$row][0] . "</Name>\n";
-	    	echo "<Telephone>" . $results[$row][1] . "</Telephone>\n";
-	    	echo "</DirectoryEntry>\n";
+	            $endoflist = False;
+		    	echo "<DirectoryEntry>\n";
+		    	echo "<Name>" . $results[$row][0] . "</Name>\n";
+		    	echo "<Telephone>" . $results[$row][1] . "</Telephone>\n";
+		    	echo "</DirectoryEntry>\n";
             }
 	}
 	echo "<SoftKeyItem>\n";
@@ -52,7 +52,7 @@ if ($numrows >=32) {
 	echo "<Position>2</Position>\n";
 	echo "</SoftKeyItem>\n";
 
-	if ($endoflist = False) {
+	if ($endoflist == False) {
 		if ($page > 0){
 			echo "<SoftKeyItem>\n";
 			echo "<Name>Prev</Name>\n";
@@ -73,7 +73,7 @@ if ($numrows >=32) {
 		echo "<Position>4</Position>\n";
 		echo "</SoftKeyItem>\n";
 	}
-	elseif ($endoflist = True) {
+	elseif ($endoflist == True) {
 		echo "<SoftKeyItem>\n";
 		echo "<Name>Prev</Name>\n";
 		echo "<URL>SoftKey:Exit</URL>\n";
