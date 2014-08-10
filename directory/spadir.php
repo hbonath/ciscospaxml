@@ -9,7 +9,7 @@ global $db;  // FreePBX asterisk database connector
 global $amp_conf;  // array with Asterisk configuration
 global $astman;  // AMI
  
-$sql = "SELECT name,extension FROM users";
+$sql = "SELECT name,extension FROM users ORDER BY extension";
 $results = $db->getAll($sql, DB_FETCHMODE_ORDERED);  // 2D array of all FreePBX users
 $numrows = count($results);
 
